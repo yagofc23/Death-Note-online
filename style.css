@@ -48,8 +48,9 @@ header{
   font-family: 'Death Note', sans-serif;
   
   /* Aponte para o seu arquivo .ttf */
-  src: url('https://www.fontget.com/font/death-note/.ttf') format('truetype');
+  src: url('font/death-note/.ttf') format('truetype');
        
   font-weight: normal;
   font-style: normal;
+
 }
