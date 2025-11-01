@@ -1,2 +1,1 @@
-# Death-Note-online
-uma versão digital do caderno mais iconico dos animes. 
+📓 Projeto Death Note (Full-Stack): Um app de tarefas (To-Do list) com a estética de Death Note. Gerencie seus "alvos" e "regras" usando um backend em Python e um frontend interativo com HTML e CSS . Foco em UI/UX temático e operações CRUD.
