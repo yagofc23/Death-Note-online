@@ -8,9 +8,6 @@
     <link rel="shortcut icon" href="./skull-redondo.png" type="image/png">
     
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
@@ -22,11 +19,25 @@
     </script>
     
     <style>
-        /* --- RESPONSIVIDADE DA CAVEIRA --- */
+        /* --- IMPORTANDO A SUA FONTE LOCAL --- */
+        @font-face {
+            font-family: 'FonteDeathNote';
+            src: url('Death-Note.ttf') format('truetype');
+        }
+
+        /* Aplicando a fonte do arquivo em TODO o site */
+        body, input, button, .modal-content, .mensagem-olhos, h1, h2, h4, li, p, label, .modal-titulo {
+            font-family: 'FonteDeathNote', sans-serif;
+        }
+
+        /* --- RESPONSIVIDADE DA CAVEIRA (COM BORDA REDONDA) --- */
         header img {
-            width: 100%;        
-            max-width: 500px;   
-            height: auto;       
+            width: 200px;       
+            height: 200px;      
+            border-radius: 50%; 
+            object-fit: cover;  
+            border: 4px solid #cc0000; 
+            box-shadow: 0 0 20px rgba(204, 0, 0, 0.5); 
         }
 
         /* --- ANIMAÇÃO DE TREMOR --- */
@@ -63,7 +74,7 @@
             background: #0a0a0a; border: 2px solid #cc0000; padding: 30px;
             text-align: center; width: 90%; max-width: 400px;
             box-shadow: 0 0 20px rgba(204, 0, 0, 0.4);
-            font-family: 'Special Elite', cursive; color: #ccc;
+            color: #ccc;
         }
         .modal-titulo {
             font-size: 1.5rem; color: #cc0000; margin-bottom: 15px;
@@ -73,7 +84,7 @@
         .modal-texto { font-size: 1.1rem; margin-bottom: 25px; line-height: 1.4; }
         .modal-btn {
             background: #cc0000; color: white; border: none; padding: 10px 25px;
-            font-family: 'Special Elite', cursive; font-size: 1rem;
+            font-size: 1rem;
             cursor: pointer; transition: 0.3s;
         }
         .modal-btn:hover { background: #ff0000; box-shadow: 0 0 10px red; }
@@ -83,12 +94,12 @@
             margin-top: 20px; font-size: 1.2rem; color: #cc0000; 
             text-shadow: 1px 1px 2px #000; font-weight: bold;
             opacity: 0; transition: opacity 1.5s ease-in; 
-            font-family: 'Special Elite', cursive; line-height: 1.5;
+            line-height: 1.5;
         }
         .mensagem-olhos.visivel { opacity: 1; }
         .btn-share-style {
             background-color: #000; border: 1px solid #cc0000; color: #cc0000;
-            padding: 8px 16px; margin-top: 10px; font-family: 'Special Elite', cursive;
+            padding: 8px 16px; margin-top: 10px;
             cursor: pointer; transition: 0.3s;
         }
         .btn-share-style:hover { background-color: #cc0000; color: #000; }
@@ -294,7 +305,7 @@
                 texto.setAttribute("x", xNum); texto.setAttribute("y", yNum);
                 texto.setAttribute("fill", "#e0e0e0"); texto.setAttribute("text-anchor", "middle");
                 texto.setAttribute("dominant-baseline", "central");
-                texto.setAttribute("font-family", "'Special Elite', monospace"); texto.setAttribute("font-size", "14px");
+                texto.setAttribute("font-family", "'FonteDeathNote', sans-serif"); texto.setAttribute("font-size", "14px");
                 texto.textContent = numero; grupoFace.appendChild(texto);
             }
         }
