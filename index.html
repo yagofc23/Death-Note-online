@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Note online</title> 
+    
+    <link rel="shortcut icon" href="./skull-redondo.png" type="image/png">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script type="text/javascript">
+       (function(){
+          // 2. INICIALIZAÇÃO
+          emailjs.init("IrdIr1OwYFVZ77CSp"); 
+       })();
+    </script>
+    
+    <style>
+        /* --- RESPONSIVIDADE DA CAVEIRA --- */
+        header img {
+            width: 100%;        
+            max-width: 500px;   
+            height: auto;       
+        }
+
+        /* --- ANIMAÇÃO DE TREMOR --- */
+        @keyframes tremer {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .efeito-tremor {
+            animation: tremer 0.5s;
+            animation-iteration-count: 2; 
+        }
+
+        /* ESTILOS DO MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); 
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .modal-overlay.aberto { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: #0a0a0a; border: 2px solid #cc0000; padding: 30px;
+            text-align: center; width: 90%; max-width: 400px;
+            box-shadow: 0 0 20px rgba(204, 0, 0, 0.4);
+            font-family: 'Special Elite', cursive; color: #ccc;
+        }
+        .modal-titulo {
+            font-size: 1.5rem; color: #cc0000; margin-bottom: 15px;
+            text-transform: uppercase; letter-spacing: 2px;
+            border-bottom: 1px solid #333; padding-bottom: 10px;
+        }
+        .modal-texto { font-size: 1.1rem; margin-bottom: 25px; line-height: 1.4; }
+        .modal-btn {
+            background: #cc0000; color: white; border: none; padding: 10px 25px;
+            font-family: 'Special Elite', cursive; font-size: 1rem;
+            cursor: pointer; transition: 0.3s;
+        }
+        .modal-btn:hover { background: #ff0000; box-shadow: 0 0 10px red; }
+
+        /* ESTILOS DA MENSAGEM DOS OLHOS */
+        .mensagem-olhos {
+            margin-top: 20px; font-size: 1.2rem; color: #cc0000; 
+            text-shadow: 1px 1px 2px #000; font-weight: bold;
+            opacity: 0; transition: opacity 1.5s ease-in; 
+            font-family: 'Special Elite', cursive; line-height: 1.5;
+        }
+        .mensagem-olhos.visivel { opacity: 1; }
+        .btn-share-style {
+            background-color: #000; border: 1px solid #cc0000; color: #cc0000;
+            padding: 8px 16px; margin-top: 10px; font-family: 'Special Elite', cursive;
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn-share-style:hover { background-color: #cc0000; color: #000; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><img src="./skull.jpeg" alt="Caveira"></h1>
+    <h1>DEATH NOTE online</h1>
+</header> 
+<br>
+
+<section>
+    <h2> Seja bem vindo ao site death note onde podera ter acesso aos mesmos poderes concedidos pelo caderno.<h2> 
+    <h4>Ola humano em troca de escrever os nomes dos humanos que deseja matar neste site
+    sera feito em troca do pagamento da alma do usuario!</H4>
+    <h4>o usuario nao ira nem pro ceu nem pro inferno vai virar shinigami forcado a ter uma vida fazia para todo o sempre!</h4>    
+    <h4>escreva os nomes das pessoas que deseja matar!</h4>
+    <h4> ps: nao esqueca de lembrar os rostos</h4>
+</section>
+
+<section>
+    regras:
+    <br>
+    <ul>
+        <li>A pessoa que usar o site ficara possuida por um Deus da morte, os donos originais do site, ate morrer.</li>
+        <li>Se um humano usar o site, um Deus da morte normalmente aparecera a sua frente dentro de 39 dias apos usa-lo.</li>
+        <li>Os Deuses da morte, os donos originais do site Death Note, nao fazem nada, em principio, que ajude ou previna as mortes no site.</li>
+        <li>Um Deus da morte nao tem obrigacao de explicar completamente como usar o site ou as regras que se aplicam ao humano que o possui.</li>
+        <li>Os direitos do site so podem ser vendidos se o dono humano os vender perdendo a vida assim que receber o dinheiro.</li>
+    </ul> 
+</section>
+
+<section>
+    <form id="form-deathnote">
+        <input type="text" id="nome-alvo" class="caixa-seria" placeholder="Digite quem vai morrer!" autocomplete="off"> <br>
+        <input type="text" id="causa-morte" class="caixa-seria" placeholder="Digite a causa da morte!" autocomplete="off">
+        <button type="submit" id="botao-morreu" disabled>Morreu</button>
+        <input type="checkbox" id="termos" name="termos_servico" value="aceito"> 
+        <div id="container-relogio" class="oculto">
+            <svg width="250" height="250" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="98" stroke="#333" stroke-width="4" fill="#000" />
+                <circle cx="100" cy="100" r="94" stroke="#fff" stroke-width="1" fill="transparent" />
+                <g id="face-relogio"></g>
+                <circle cx="100" cy="100" r="4" fill="#cc0000" />
+                <line id="ponteiro-hora" x1="100" y1="100" x2="100" y2="60" stroke="white" stroke-width="4" stroke-linecap="round" />
+                <line id="ponteiro-minuto" x1="100" y1="100" x2="100" y2="35" stroke="#ccc" stroke-width="2" stroke-linecap="round" />
+                <line id="ponteiro-segundo" x1="100" y1="120" x2="100" y2="25" stroke="#cc0000" stroke-width="1.5" />
+            </svg>
+        </div>
+        <div id="mensagem-final" class="oculto"></div>
+    </form>
+    <label for="termos">aceito os termos de servico do site Death Note online</label> <br> <br>
+    espere 40 segundos ate a morte do alvo <br>
+    nao esqueca de especificar a a causa da morte!(caso nao especificado ira ser ataque cardiaco)
+</section>
+    
+<br><br><br>
+
+<footer>
+    <fieldset> 
+        <h3> ACORDO DOS OLHOS DE SHINIGAMI 👁</h3>
+        <p> 
+            Caso o usuario deseje aumentar sua capacidade de visao e possuir <strong>Olhos de Shinigami</strong>, que o ajudarao a ver o nome e tempo de vida das pessoas apenas olhando seus rostos.
+            <br><br>
+            Podera ser feito um acordo em troca de <strong>metade do tempo de vida restante</strong> do contratante(ou seja se voce for viver ate os 80 anos ira morrer aos 40).
+        </p> 
+        <div style="margin: 20px 0;">
+            <input type="checkbox" id="checkbox-olhos" name="olhos_shinigami">
+            <label for="checkbox-olhos" style="color: #cc0000; font-weight: bold;">Eu aceito trocar metade do meu tempo de vida pelos Olhos de Shinigami</label>
+        </div>
+        <div id="form-olhos-inputs" class="oculto">
+            <br>
+            <p>Insira seus dados para selar o contrato:</p>
+            <input type="text" id="olhos-nome" class="caixa-seria" placeholder="Seu Nome Completo"> <br>
+            <input type="email" id="olhos-email" class="caixa-seria" placeholder="Seu E-mail"> <br>
+            <button type="button" id="btn-acordo-olhos">Confirmar Acordo</button>
+            <div id="msg-acordo-olhos" class="mensagem-olhos"></div>
+        </div>
+    </fieldset>
+
+    <p>&copy; <span id="current-year"></span> Desenvolvido por Yago Fernandes(por ordem do rei shingami) . Todos os direitos reservados.</p>
+    <p class="signature">Se quiser saber mais sobre o desenvolvedor do site<a href="https://github.com/yagofc23" target="_blank"> CLIQUE AQUI!</a></p>
+</footer>
+
+<div id="modal-personalizado" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-titulo">DEATH NOTE ONLINE</div>
+        <div class="modal-texto" id="texto-do-modal">Link copiado! Espalhe para recuperar seu tempo de vida...</div>
+        <button class="modal-btn" onclick="fecharModal()">OK</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    // VARIÁVEIS DO DEATH NOTE
+    const checkboxTermos = document.getElementById('termos');
+    const botaoEnviar = document.getElementById('botao-morreu');
+    const form = document.getElementById('form-deathnote');
+    const containerRelogio = document.getElementById('container-relogio');
+    const ponteiroSegundo = document.getElementById('ponteiro-segundo');
+
+    // VARIÁVEIS DOS OLHOS DE SHINIGAMI
+    const checkboxOlhos = document.getElementById('checkbox-olhos');
+    const formOlhosDiv = document.getElementById('form-olhos-inputs');
+    const btnAcordoOlhos = document.getElementById('btn-acordo-olhos'); 
+    const inputNomeOlhos = document.getElementById('olhos-nome');
+    const inputEmailOlhos = document.getElementById('olhos-email');
+
+    // VARIÁVEIS DO MODAL
+    const modalPersonalizado = document.getElementById('modal-personalizado');
+
+    const audioRelogio = new Audio('clock_old_near-27000.mp3'); 
+    const audioMorte = new Audio('sino.mp3');
+    audioRelogio.loop = true; 
+    let intervaloRelogio = null; let segundosPassados = 0;
+
+    function abrirModal(mensagem) {
+        if(mensagem) document.getElementById('texto-do-modal').innerText = mensagem;
+        modalPersonalizado.classList.add('aberto');
+    }
+    function fecharModal() { modalPersonalizado.classList.remove('aberto'); }
+
+    checkboxOlhos.addEventListener('change', function() {
+        if(this.checked) {
+            formOlhosDiv.classList.remove('oculto'); 
+        } else {
+            formOlhosDiv.classList.add('oculto'); 
+            document.getElementById('msg-acordo-olhos').classList.remove('visivel');
+        }
+    });
+
+    // --- LÓGICA DE ENVIO DO EMAIL ---
+    btnAcordoOlhos.addEventListener('click', function() {
+        const nome = inputNomeOlhos.value;
+        const email = inputEmailOlhos.value;
+        const msgDiv = document.getElementById('msg-acordo-olhos');
+
+        if(nome.trim() === "" || email.trim() === "") {
+            alert("Preencha nome e e-mail para selar o contrato.");
+            return;
+        }
+
+        const textoOriginal = btnAcordoOlhos.innerText;
+        btnAcordoOlhos.innerText = "Selando...";
+        btnAcordoOlhos.disabled = true;
+
+        const templateParams = {
+            to_name: nome,
+            to_email: email, 
+            message: "O acordo foi feito."
+        };
+
+        emailjs.send('service_sbw2ch8', 'template_bwut06k', templateParams)
+            .then(function() {
+                msgDiv.innerHTML = `
+                    Acordo selado, ${nome}. Verifique seu e-mail.<br><br>
+                    Atenção: Metade da sua vida foi tomada. <br>
+                    Compartilhe este site para recuperar!<br>
+                    <span style="color: white;">Cada recomendação = +1 ano de vida.</span>
+                    <br>
+                    <button class="btn-share-style" onclick="copiarLinkSite()">Copiar Link do Site</button>
+                `;
+                msgDiv.classList.add('visivel');
+                btnAcordoOlhos.innerText = "Contrato Feito";
+            }, function(error) {
+                console.log('FALHA...', error);
+                alert("O Shinigami não conseguiu encontrar seu e-mail. (Erro no servidor)");
+                btnAcordoOlhos.innerText = textoOriginal;
+                btnAcordoOlhos.disabled = false;
+            });
+    });
+
+    function copiarLinkSite() {
+        const url = "https://yagofc23.github.io/Death-Note-online/"; 
+        navigator.clipboard.writeText(url).then(() => {
+            abrirModal("Link copiado! Espalhe para recuperar seu tempo de vida...");
+        }).catch(err => { console.error('Erro ao copiar', err); });
+    }
+
+    // RELOGIO E MORTE
+    function desenharFaceRelogio() {
+        const grupoFace = document.getElementById('face-relogio'); if(!grupoFace) return;
+        const centroX = 100; const centroY = 100; const raioExterno = 90; const raioNumeros = 70; 
+        for (let i = 0; i < 60; i++) {
+            const angulo = (i * 6) * (Math.PI / 180); const ehHoraCheia = (i % 5 === 0);
+            const comprimentoTraco = ehHoraCheia ? 10 : 5; const espessuraTraco = ehHoraCheia ? 2 : 1;
+            const corTraco = ehHoraCheia ? "#fff" : "#666"; 
+            const x1 = centroX + raioExterno * Math.cos(angulo - Math.PI / 2);
+            const y1 = centroY + raioExterno * Math.sin(angulo - Math.PI / 2);
+            const x2 = centroX + (raioExterno - comprimentoTraco) * Math.cos(angulo - Math.PI / 2);
+            const y2 = centroY + (raioExterno - comprimentoTraco) * Math.sin(angulo - Math.PI / 2);
+            const linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            linha.setAttribute("x1", x1); linha.setAttribute("y1", y1); linha.setAttribute("x2", x2); linha.setAttribute("y2", y2);
+            linha.setAttribute("stroke", corTraco); linha.setAttribute("stroke-width", espessuraTraco); grupoFace.appendChild(linha);
+            if (ehHoraCheia) {
+                let numero = i / 5; if (numero === 0) numero = 12;
+                const xNum = centroX + raioNumeros * Math.cos(angulo - Math.PI / 2);
+                const yNum = centroY + raioNumeros * Math.sin(angulo - Math.PI / 2);
+                const texto = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                texto.setAttribute("x", xNum); texto.setAttribute("y", yNum);
+                texto.setAttribute("fill", "#e0e0e0"); texto.setAttribute("text-anchor", "middle");
+                texto.setAttribute("dominant-baseline", "central");
+                texto.setAttribute("font-family", "'Special Elite', monospace"); texto.setAttribute("font-size", "14px");
+                texto.textContent = numero; grupoFace.appendChild(texto);
+            }
+        }
+    }
+    desenharFaceRelogio();
+
+    function removerAcentos(texto) { return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, ""); }
+    checkboxTermos.addEventListener('change', function() { botaoEnviar.disabled = !this.checked; });
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        
+        document.body.classList.remove('efeito-tremor');
+
+        let nome = document.getElementById('nome-alvo').value; 
+        let causa = document.getElementById('causa-morte').value;
+        const areaMensagem = document.getElementById('mensagem-final');
+        
+        if (!nome) { alert("O caderno precisa de um nome..."); return; }
+
+        // --- EASTER EGG DO L ---
+        const nomeUpper = nome.toUpperCase().trim();
+        if (nomeUpper === "L" || nomeUpper === "RYUZAKI") {
+            alert("ERRO: O nome verdadeiro dele não é esse...");
+            return; 
+        }
+
+        if (!causa) { causa = "ataque cardiaco"; }
+        nome = removerAcentos(nome); causa = removerAcentos(causa);
+        
+        clearInterval(intervaloRelogio); audioRelogio.pause(); audioRelogio.currentTime = 0;
+        audioMorte.pause(); audioMorte.currentTime = 0; segundosPassados = 0;
+        ponteiroSegundo.style.transform = `rotate(0deg)`; areaMensagem.innerHTML = ""; 
+        containerRelogio.classList.remove('oculto'); areaMensagem.classList.remove('oculto');
+        
+        audioRelogio.play().catch(e => console.log("Erro audio:", e));
+        
+        intervaloRelogio = setInterval(function() {
+            segundosPassados++;
+            const angulo = segundosPassados * 6; ponteiroSegundo.style.transform = `rotate(${angulo}deg)`;
+            
+            if (segundosPassados >= 40) {
+                clearInterval(intervaloRelogio); 
+                audioRelogio.pause(); 
+                audioMorte.play();
+                
+                // DISPARA O TREMOR
+                document.body.classList.add('efeito-tremor');
+
+                containerRelogio.classList.add('oculto');
+                areaMensagem.innerHTML = `<p class="texto-dn"><span class="nome-destaque">${nome}</span> morreu de <span class="causa-destaque">${causa}</span>.</p>`;
+                areaMensagem.classList.add("aparecer");
+            }
+        }, 1000); 
+    });
+</script>
+</body>
+</html>

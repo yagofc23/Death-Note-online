@@ -1,0 +1,139 @@
+body {
+    text-align: center;
+    color: white;
+    font-size: 135%;
+    background-color: black;
+    font-family: 'Death Note', 'Courier New', monospace; 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- LOGO AUMENTADO --- */
+img {
+    width: 100%;       /* Ocupa 50% da largura da tela */
+    max-width: 800px; /* (Opcional) Trava em um tamanho máximo pra não ficar absurdo em TV 4k */
+    height: auto;     /* Mantém a proporção, não achata a imagem */
+    transition: transform 0.3s ease;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 300%;
+    font-family: 'Death Note', sans-serif;
+    margin: 10px 0;
+}
+
+.caixa-seria {
+    font-family: 'Special Elite', monospace;
+    font-size: 18px;
+    color: #FFF; 
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #555; 
+    outline: none;
+    padding: 10px 5px;
+    width: 300px;
+    margin-top: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.caixa-seria:focus {
+    border-bottom-color: #cc0000;
+}
+
+.caixa-seria::placeholder {
+    color: #777;
+    font-family: 'Special Elite', monospace;
+}
+
+@font-face {
+  font-family: 'Death Note';
+  src: url('deathnote.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --- UTILITÁRIOS --- */
+.oculto {
+    display: none !important;
+}
+
+/* --- RELÓGIO VISUAL (SVG) --- */
+#container-relogio {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px #cc0000);
+}
+
+/* Estilo para os números dentro do relógio SVG */
+.texto-relogio {
+    font-family: 'Special Elite', monospace;
+    font-size: 14px;
+    fill: #e0e0e0; /* Cor quase branca */
+    text-anchor: middle; /* Centraliza horizontalmente */
+    dominant-baseline: central; /* Centraliza verticalmente */
+}
+
+/* Configuração fundamental para os ponteiros girarem certo */
+#ponteiro-hora, #ponteiro-minuto, #ponteiro-segundo {
+    transform-origin: 100px 100px;
+    transition: transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+}
+
+/* --- MENSAGEM FINAL --- */
+#mensagem-final {
+    min-height: 100px;
+    opacity: 0;
+}
+
+.aparecer {
+    animation: surgimento-morte 4s ease-in-out forwards;
+    display: block !important;
+}
+
+.texto-dn {
+    font-family: 'Death Note', 'Special Elite', monospace;
+    font-size: 2rem;
+    color: #cc0000;
+    text-shadow: 2px 2px 4px #000;
+    line-height: 1.5;
+}
+
+.nome-destaque {
+    font-size: 2.5rem;
+    color: #ff0000;
+    font-weight: bold;
+    border-bottom: 1px solid #555;
+    display: block;
+    margin: 10px 0;
+}
+
+.causa-destaque {
+    font-style: italic;
+    color: #ffcccc;
+}
+
+@keyframes surgimento-morte {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+        filter: blur(10px);
+    }
+    40% {
+        opacity: 0.6;
+        filter: blur(3px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+}
